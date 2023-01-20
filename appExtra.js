@@ -3,9 +3,9 @@ const btnRes = document.querySelector('.resta');
 const btnMult = document.querySelector('.mult');
 const btnDiv = document.querySelector('.div');
 const btnEquals = document.querySelector('.equals');
-// let inputA = () => parseInt(document.querySelector('.screen').value);
-// let inputB = () => parseInt(document.querySelector('.b').value);
+let numbersInput = () => parseInt(document.querySelector('.screen').value);
 let inputTotal = document.querySelector('.total');
+
 const operations = {
     suma: '+',
     resta: '-',
@@ -13,6 +13,8 @@ const operations = {
     division: '/',
     igual: '='
 }
+
+
 
 const sum = (a, b) => {
     let result = a + b
@@ -55,16 +57,16 @@ const handleEquals = () => {
     let res = 0;
     switch (operations) {
         case 'suma':
-            res = inputA + inputB
+            res = numbersInput + numbersInput
             break;
         case 'resta':
-            res = inputA - inputB
+            res = numbersInput - numbersInput
             break;
         case 'multiplicacion':
-            res = inputA * inputB
+            res = numbersInput * numbersInput
             break;
         case 'division':
-            res = inputA / inputB
+            res = numbersInput / numbersInput
             break;
 
     }

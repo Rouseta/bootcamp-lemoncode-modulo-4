@@ -5,6 +5,10 @@ const btnDiv = document.querySelector('.div');
 let inputA = () => parseInt(document.querySelector('.a').value);
 let inputB = () => parseInt(document.querySelector('.b').value);
 let inputTotal = document.querySelector('.total');
+console.log(inputA)
+
+
+
 
 
 const sum = (a, b) => {
