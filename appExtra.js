@@ -6,11 +6,11 @@ const btnEquals = document.querySelector('.equals')
 let input = document.querySelector('.input').value;
 let inputTotal = document.querySelector('.total');
 
-getUpdatedInput = () => {
+getUpdatedInput = (input) => {
 
 }
 
-const sum = (a, b) => {
+const sum = (a, b) => {//TODO CAMBIAR FUNCIONES OPERACIONES MATEMÁTICAS
     let result = a + b
     return result
 }
