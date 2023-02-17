@@ -2,37 +2,51 @@ const btnSum = document.querySelector('.suma');
 const btnRes = document.querySelector('.resta');
 const btnMult = document.querySelector('.mult');
 const btnDiv = document.querySelector('.div');
-const btnEquals = document.querySelector('.equals');
-let numbersInput = document.querySelector('.screen').value;
+const btnEquals = document.querySelector('.equals')
+let input = document.querySelector('.input').value;
 let inputTotal = document.querySelector('.total');
-console.log(numbersInput)
-const operations = {
-    sumar: (a, b) => a + b,
-    restar: (a, b) => a - b,
-    multiplicar: (a, b) => a * b,
-    dividir: (a, b) => a / b,
+
+
+
+const sum = () => {
+
+    let result = a + b
+    return result
+}
+const handleSum = () => {
+
+    inputTotal.innerHTML = sum()
 }
 
-const handleOPeration = (operation) => {
-    return inputTotal.innerHTML = operations[operation]
+
+const diff = (a, b) => {
+    let result = a - b
+    return result
+}
+const handleDiff = () => {
+    inputTotal.innerHTML = diff();
 
 }
 
 
+const mult = (a, b) => {
+    let result = a * b
+    return result
+}
+const handleMult = () => inputTotal.innerHTML = mult();
 
 
 
+const div = (a, b) => {
+    const result = a / b
+    return result
+}
 
+const handleDiv = () => inputTotal.innerHTML = div();
 
-
-
-
-
-
-
-
-
-
+const equals = () => {
+}
+const handleEquals = () => inputTotal.innerHTML = equals()
 
 
 
