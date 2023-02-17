@@ -6,10 +6,7 @@ const btnEquals = document.querySelector('.equals')
 let input = document.querySelector('.input').value;
 let inputTotal = document.querySelector('.total');
 
-
-
-const sum = () => {
-
+const sum = (a, b) => {
     let result = a + b
     return result
 }
@@ -17,7 +14,6 @@ const handleSum = () => {
 
     inputTotal.innerHTML = sum()
 }
-
 
 const diff = (a, b) => {
     let result = a - b
@@ -27,15 +23,11 @@ const handleDiff = () => {
     inputTotal.innerHTML = diff();
 
 }
-
-
 const mult = (a, b) => {
     let result = a * b
     return result
 }
 const handleMult = () => inputTotal.innerHTML = mult();
-
-
 
 const div = (a, b) => {
     const result = a / b
