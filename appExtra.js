@@ -6,6 +6,10 @@ const btnEquals = document.querySelector('.equals')
 let input = document.querySelector('.input').value;
 let inputTotal = document.querySelector('.total');
 
+getUpdatedInput = () => {
+
+}
+
 const sum = (a, b) => {
     let result = a + b
     return result
