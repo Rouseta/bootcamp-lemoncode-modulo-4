@@ -1,58 +1,43 @@
-const btnSum = document.querySelector('.suma');
-const btnRes = document.querySelector('.resta');
-const btnMult = document.querySelector('.mult');
-const btnDiv = document.querySelector('.div');
-const btnEquals = document.querySelector('.equals')
-let input = document.querySelector('.input').value;
-console.log(input)
+function calcular() {
+    // Obtener el operando del input
+    const numero = document.getElementById("numero").value;
 
+    // Obtener la operación
+    const operacion = document.getElementById("operacion").value;
 
-getUpdatedInput = (input) => {
+    // Actualizar el resultado parcial
+    let resultadoParcial = 0;
 
+    // Si no hay ningún resultado parcial, lo inicializamos con el primer número introducido
+    if (resultadoParcial === 0) {
+        resultadoParcial = parseFloat(numero);
+    } else {
+        // Aplicar la operación anterior al resultado parcial
+        switch (operacion) {
+            case "suma":
+                resultadoParcial += parseFloat(numero);
+                break;
+            case "resta":
+                resultadoParcial -= parseFloat(numero);
+                break;
+            case "multiplicacion":
+                resultadoParcial *= parseFloat(numero);
+                break;
+            case "division":
+                resultadoParcial /= parseFloat(numero);
+                break;
+        }
+    }
+
+    // Actualizar el resultado parcial en el DOM
+    document.getElementById("resultado-parcial").innerHTML = resultadoParcial;
 }
 
-const sum = (a, b) => {//TODO CAMBIAR FUNCIONES OPERACIONES MATEMÁTICAS
-    let result = a + b
-    return result
-}
-const handleSum = () => {
+// Escuchar el evento click del botón de resultado
+document.getElementById("resultado").addEventListener("click", calcular);
 
-
-}
-
-const diff = (a, b) => {
-    let result = a - b
-    return result
-}
-const handleDiff = () => {
-    inputTotal.innerHTML = diff();
-
-}
-const mult = (a, b) => {
-    let result = a * b
-    return result
-}
-const handleMult = () => inputTotal.innerHTML = mult();
-
-const div = (a, b) => {
-    const result = a / b
-    return result
-}
-
-const handleDiv = () => inputTotal.innerHTML = div();
-
-const equals = () => {
-}
-const handleEquals = () => inputTotal.innerHTML = equals()
-
-
-
-btnSum.addEventListener('click', handleSum);
-btnRes.addEventListener('click', handleDiff);
-btnMult.addEventListener('click', handleMult);
-btnDiv.addEventListener('click', handleDiv);
-btnEquals.addEventListener('click', handleEquals);
-
-
-
-
+// Escuchar el evento click de los botones de operación
+const operaciones = document.querySelectorAll(".operaciones button");
+operaciones.forEach(operacion => {
+    operacion.addEventListener("click", calcular);
+});

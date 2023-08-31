@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicios módulo 4. Extra</title>
     <body>
-      <input class="input" />
-      <br />
-      <br />
-      
-      <button class="suma">+</button>
-      <button class="resta">-</button>
-      <button class="mult">x</button>
-      <button class="div">/</button>
-      <button class="equals">=</button>
+      <div class="calculadora">
+        <input type="number" id="numero" placeholder="Número">
+        <div class="operaciones">
+          <button id="suma">+</button>
+          <button id="resta">-</button>
+          <button id="multiplicacion">*</button>
+          <button id="division">/</button>
+        </div>
+        <button id="resultado">Resultado</button>
+        <span id="resultado-parcial"></span>
+      </div>
 
    </head>
     <script src="appExtra.js"></script>
