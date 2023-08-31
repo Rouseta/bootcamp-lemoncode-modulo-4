@@ -4,7 +4,8 @@ const btnMult = document.querySelector('.mult');
 const btnDiv = document.querySelector('.div');
 const btnEquals = document.querySelector('.equals')
 let input = document.querySelector('.input').value;
-let inputTotal = document.querySelector('.total');
+console.log(input)
+
 
 getUpdatedInput = (input) => {
 
@@ -16,7 +17,7 @@ const sum = (a, b) => {//TODO CAMBIAR FUNCIONES OPERACIONES MATEMÁTICAS
 }
 const handleSum = () => {
 
-    inputTotal.innerHTML = sum()
+
 }
 
 const diff = (a, b) => {
