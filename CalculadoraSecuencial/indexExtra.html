@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejercicios módulo 4. Extra</title>
-    <body>
-      <div class="calculadora">
-        <input type="number" id="numero" placeholder="Número">
-        <div class="operaciones">
-          <button id="suma">+</button>
-          <button id="resta">-</button>
-          <button id="multiplicacion">*</button>
-          <button id="division">/</button>
-        </div>
-        <button id="resultado">Resultado</button>
-        <span id="resultado-parcial"></span>
+    <title>Calculadora Secuencial</title>
+  </head>
+  <body>
+    <h1>Calculadora Secuencial</h1>
+    <div id="calculator">
+      <input type="number" id="display" value="0" />
+      <div id="operations">
+        <button id="additionButton">+</button>
+        <button id="subtractionButton">-</button>
+        <button id="multiplicationButton">*</button>
+        <button id="divisionButton">/</button>
       </div>
+      <br />
+      <button id="calculateButton">Calcular Resultado</button>
+      <button id="resetButton">Reset</button>
+    </div>
 
-   </head>
     <script src="appExtra.js"></script>
-    </body>
-  </html>
-  
-        
+  </body>
+</html>

@@ -1,43 +1,61 @@
-function calcular() {
-    // Obtener el operando del input
-    const numero = document.getElementById("numero").value;
+let resultPartial = 0;
+let selectedOperation = null;
 
-    // Obtener la operación
-    const operacion = document.getElementById("operacion").value;
+const displayElement = document.getElementById('display');
+const additionButton = document.getElementById('additionButton');
+const subtractionButton = document.getElementById('subtractionButton');
+const multiplicationButton = document.getElementById('multiplicationButton');
+const divisionButton = document.getElementById('divisionButton');
+const calculateButton = document.getElementById('calculateButton');
+const resetButton = document.getElementById('resetButton');
 
-    // Actualizar el resultado parcial
-    let resultadoParcial = 0;
+const inputNumber = parseFloat(displayElement.value);
 
-    // Si no hay ningún resultado parcial, lo inicializamos con el primer número introducido
-    if (resultadoParcial === 0) {
-        resultadoParcial = parseFloat(numero);
-    } else {
-        // Aplicar la operación anterior al resultado parcial
-        switch (operacion) {
-            case "suma":
-                resultadoParcial += parseFloat(numero);
-                break;
-            case "resta":
-                resultadoParcial -= parseFloat(numero);
-                break;
-            case "multiplicacion":
-                resultadoParcial *= parseFloat(numero);
-                break;
-            case "division":
-                resultadoParcial /= parseFloat(numero);
-                break;
-        }
-    }
+additionButton.addEventListener('click', () => selectOperation('+'));
+subtractionButton.addEventListener('click', () => selectOperation('-'));
+multiplicationButton.addEventListener('click', () => selectOperation('*'));
+divisionButton.addEventListener('click', () => selectOperation('/'));
+calculateButton.addEventListener('click', calculateResult);
+resetButton.addEventListener("click", resetCalculator)
 
-    // Actualizar el resultado parcial en el DOM
-    document.getElementById("resultado-parcial").innerHTML = resultadoParcial;
+function selectOperation(operation) {
+    selectedOperation = operation;
+
 }
 
-// Escuchar el evento click del botón de resultado
-document.getElementById("resultado").addEventListener("click", calcular);
 
-// Escuchar el evento click de los botones de operación
-const operaciones = document.querySelectorAll(".operaciones button");
-operaciones.forEach(operacion => {
-    operacion.addEventListener("click", calcular);
-});
+function calculateResult() {
+    if (selectedOperation !== null) {
+
+
+
+        if (!isNaN(inputNumber)) {
+            switch (selectedOperation) {
+                case '+':
+                    resultPartial += inputNumber;
+                    break;
+                case '-':
+                    resultPartial -= inputNumber;
+                    break;
+                case '*':
+                    resultPartial *= inputNumber;
+                    break;
+                case '/':
+                    if (inputNumber !== 0) {
+                        resultPartial /= inputNumber;
+                    } else {
+                        alert('No es posible dividir por cero.');
+                    }
+                    break;
+            }
+
+            selectedOperation = null;
+            displayElement.value = resultPartial;
+        }
+    }
+}
+function resetCalculator() {
+    resultPartial = 0;
+    selectedOperation = null;
+    inputNumber = 0;
+}
