@@ -16,7 +16,7 @@ subtractionButton.addEventListener('click', () => selectOperation('-'));
 multiplicationButton.addEventListener('click', () => selectOperation('*'));
 divisionButton.addEventListener('click', () => selectOperation('/'));
 calculateButton.addEventListener('click', calculateResult);
-resetButton.addEventListener("click", resetCalculator)
+resetButton.addEventListener('click', resetCalculator)
 
 function selectOperation(operation) {
     selectedOperation = operation;
