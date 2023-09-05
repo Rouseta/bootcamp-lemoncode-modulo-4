@@ -9,7 +9,8 @@ const selectedRoomBySize = document.getElementById('selectRoomSize')
 const selectedRoomBySizeValue = selectedRoomBySize.value
 console.log(selectedRoomBySizeValue);
 const calcularButton = document.getElementById('calcularPrecio')
-let roomPriceWithSpa = 0
+let roomPriceWithSpa = 0;
+let totalPrice = 0;
 
 
 
@@ -30,15 +31,21 @@ selectedRoomBySize.addEventListener('change', function () {
 
 //calcular valor de habitación con spa
 const priceWithSpa = () => {
-    if (spa.checked) {
-        console.log(Number(spa.value) + Number(selectedRoomType.value))
 
+    if (spa.checked) {
+        roomPriceWithSpa = (Number(spa.value) + Number(selectedRoomType.value))
+        console.log(roomPriceWithSpa)
     }
 
 }
-//caluclar valor segun tamaño de habitación
-// const priceAccordingSize = () => {
-//     if ()
-// }
+//calcular valor segun tamaño de habitación
+const priceAccordingSize = () => {
 
-calcularButton.addEventListener('click', priceWithSpa)
+    if (selectedRoomBySizeValue === "triple") {
+        totalPrice = 25 / 100 * roomPriceWithSpa
+        console.log(totalPrice)
+    }
+
+}
+
+calcularButton.addEventListener('click', priceAccordingSize)
