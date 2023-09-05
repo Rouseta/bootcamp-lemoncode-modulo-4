@@ -3,8 +3,12 @@ const standarRoomPrice = document.getElementById('standard').value;
 const juniorRoomPrice = document.getElementById('junior').value;
 const suitRoomPrice = document.getElementById('junior').value
 const spa = document.getElementById('spa');
+const selectedRoomType = document.getElementById("selectRoomType")
+const selectedRoomTypeValue = selectedRoomType.value;
+console.log(selectedRoomTypeValue)
 
-// Adjunta un controlador de eventos "change" al elemento checkbox
+
+
 spa.addEventListener('change', function () {
     if (spa.checked) {
         console.log("hola")
@@ -13,5 +17,8 @@ spa.addEventListener('change', function () {
     }
 
 });
+selectedRoomType.addEventListener('change', function () {
+    console.log(selectedRoomType.value)
+})
 
 
