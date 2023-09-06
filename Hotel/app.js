@@ -3,14 +3,21 @@ const standarRoomPrice = document.getElementById('standard').value;
 const juniorRoomPrice = document.getElementById('junior').value;
 const suitRoomPrice = document.getElementById('junior').value
 const spa = document.getElementById('spa');
-const selectedRoomType = document.getElementById("selectRoomType")
-const selectedRoomTypeValue = selectedRoomType.value;
-const selectedRoomBySize = document.getElementById('selectRoomSize')
-const selectedRoomBySizeValue = selectedRoomBySize.value
-console.log(selectedRoomBySizeValue);
+const selectedRoomType = document.getElementById("selectRoomType");
+const selectedRoomBySize = document.getElementById('selectRoomSize');
+const inputNumberOfNights = document.getElementById('roomNights');
+const parkingNights = document.getElementById('parkingNights')
+
+
+
+
 const calcularButton = document.getElementById('calcularPrecio')
+
+
 let roomPriceWithSpa = 0;
 let totalPrice = 0;
+let finalPrice = 0;
+
 
 
 
@@ -29,23 +36,29 @@ selectedRoomBySize.addEventListener('change', function () {
     console.log(selectedRoomBySize.value)
 })
 
+
 //calcular valor de habitación con spa
-const priceWithSpa = () => {
+const calculateTotalPricePerNight = () => {
+    const spaValue = Number(spa.value);
+    const roomPriceWithSpa = spaValue + Number(selectedRoomType.value)
+    const percentage = (25 / 100) * roomPriceWithSpa;
+    const totalParkinPrice = parkingNights.value * inputNumberOfNights.value
 
-    if (spa.checked) {
-        roomPriceWithSpa = (Number(spa.value) + Number(selectedRoomType.value))
-        console.log(roomPriceWithSpa)
+    switch (selectedRoomBySize.value) {
+        case "triple":
+            totalPrice = percentage + roomPriceWithSpa;
+            break;
+        case "individual":
+            totalPrice = roomPriceWithSpa - percentage;
+            break;
+        default:
+            totalPrice = roomPriceWithSpa;
     }
 
-}
-//calcular valor segun tamaño de habitación
-const priceAccordingSize = () => {
-
-    if (selectedRoomBySizeValue === "triple") {
-        totalPrice = 25 / 100 * roomPriceWithSpa
-        console.log(totalPrice)
-    }
+    const finalPrice = (totalPrice) * inputNumberOfNights.value + totalParkinPrice
+    console.log(finalPrice)
 
 }
 
-calcularButton.addEventListener('click', priceAccordingSize)
+
+calcularButton.addEventListener('click', calculateTotalPricePerNight);
