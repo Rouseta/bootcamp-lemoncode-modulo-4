@@ -38,7 +38,7 @@ selectedRoomBySize.addEventListener('change', function () {
 
 
 //calcular valor de habitación con spa
-const calculateTotalPricePerNight = () => {
+const calculateFinalPrice = () => {
     const spaValue = Number(spa.value);
     const roomPriceWithSpa = spaValue + Number(selectedRoomType.value)
     const percentage = (25 / 100) * roomPriceWithSpa;
@@ -61,4 +61,4 @@ const calculateTotalPricePerNight = () => {
 }
 
 
-calcularButton.addEventListener('click', calculateTotalPricePerNight);
+calcularButton.addEventListener('click', calculateFinalPrice);
