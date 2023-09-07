@@ -3,10 +3,11 @@ const standarRoomPrice = document.getElementById('standard').value;
 const juniorRoomPrice = document.getElementById('junior').value;
 const suitRoomPrice = document.getElementById('junior').value
 const spa = document.getElementById('spa');
-const selectedRoomType = document.getElementById("selectRoomType");
-const selectedRoomBySize = document.getElementById('selectRoomSize');
-const inputNumberOfNights = document.getElementById('roomNights');
-const parkingNights = document.getElementById('parkingNights')
+let selectedRoomType = document.getElementById("selectRoomType");
+let selectedRoomBySize = document.getElementById('selectRoomSize');
+let inputNumberOfNights = document.getElementById('roomNights');
+let parkingNights = document.getElementById('parkingNights')
+let displayFinalPrice = document.getElementById('displayFinalPrice')
 
 
 
@@ -25,7 +26,7 @@ spa.addEventListener('change', function () {
     if (spa.checked) {
         console.log(spa.value)
     } else {
-        console.log("adiós")
+        console.log(" ")
     }
 
 });
@@ -35,14 +36,18 @@ selectedRoomType.addEventListener('change', function () {
 selectedRoomBySize.addEventListener('change', function () {
     console.log(selectedRoomBySize.value)
 })
+const renderFinalPrice = () => {
+    return displayFinalPrice.innerHTML = `<p>Precio a pagar: ${finalPrice} euros</p>`
 
 
-//calcular valor de habitación con spa
+}
+
+//calcular valor de habitación/noche
 const calculateFinalPrice = () => {
     const spaValue = Number(spa.value);
     const roomPriceWithSpa = spaValue + Number(selectedRoomType.value)
     const percentage = (25 / 100) * roomPriceWithSpa;
-    const totalParkinPrice = parkingNights.value * inputNumberOfNights.value
+    const totalParkinPrice = parkingNights.value * 10
 
     switch (selectedRoomBySize.value) {
         case "triple":
@@ -55,8 +60,9 @@ const calculateFinalPrice = () => {
             totalPrice = roomPriceWithSpa;
     }
 
-    const finalPrice = (totalPrice) * inputNumberOfNights.value + totalParkinPrice
-    console.log(finalPrice)
+    finalPrice = (totalPrice) * inputNumberOfNights.value + totalParkinPrice
+
+    renderFinalPrice()
 
 }
 
